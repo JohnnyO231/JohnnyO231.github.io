@@ -1,0 +1,31 @@
+<style>select option[data-default] {
+  color: #888;
+}
+</style>
+<img id="image" src="baseball.png" />
+<select>
+  <option value="" selected data-default>Select a Play</option>
+  <option value="tea">Single to First Base, no runners</option>
+  <option value="coffee">Pop out at the Plate, no runners</option>
+  <option value="soda">Line Drive to Left Field, runner on 2nd</option>
+  <option value="soda">Bunt to Third Base, runner on 2nd</option>
+  <option value="soda">Fly ball to Center Field, runner on 1st</option>
+  <option value="soda">Ground ball to the shortstop, runner on 1st</option>
+  <option value="soda">Line Drive to Right Field, runners on 1st and 2nd</option>
+  <option value="soda">Fly ball to right field, runner on 2nd</option>
+  <option value="soda">Ground ball up the middle, man on 2nd</option>
+  <option value="soda">Ground ball to pitcher, bases loaded</option>
+  <option value="soda">Bunt to the pitcher, no runners</option>
+  
+</select>
+<img id="image" src="baseball.png" />
+ 
+<script>
+function setBall() {
+    var img = document.getElementById("image");
+    img.src = this.value;
+    return false;
+}
+document.getElementById("CarList").onchange = setCar;
+Here's a working demo
+</script>

@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN" "http://w3schools.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="EN" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
+​<!DOCTYPE html>
+<html>
+<head>
+<style>
+#container {
+  width: 795px;
+  height: 500px;
+  position: relative;
+  background-image: URL("field.png");
+}
+#animate {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  background-image: URL("baseball.png");
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+function myMove(top, left, angle) {
+  var elem = document.getElementById("animate");   
+  var field = document.getElementById("container");
+  var id = setInterval(frame, 5);
+  var pos = 0;
+  elem.style.left = left + 'px'; 
+  function frame() {
+    if (pos == 500) {
+      clearInterval(id);
+    } else {
+      top--;
+	  pos++;
+      $("#animate").css("top", top + "px");
+	  $("#animate").css("left", (left + angle) + "px");
+    }
+  }
+}
+
+$(document).ready(function() {
+	$("#animate").css("top", $("#container").height() - $("#animate").height()*1.7 - 5);
+	$("#animate").css("left", $("#container").width()/2 - $("#animate").width()/2);
+	
+	$("#start").click(function(e) {
+		var pos = $("#container").position();
+		//-2 to 2 is fair ball, 
+		myMove($("#container").height() - $("#animate").height()*1.7 - 5, $("#container").width()/2 - $("#animate").width()/2, 0.5);
+	})
+
+})
+</script>
+<script>
+function leftField(top, left, angle) {
+  var elem = document.getElementById("animate");   
+  var field = document.getElementById("container");
+  var id = setInterval(frame, 5);
+  var pos = 0;
+  elem.style.left = left + 'px'; 
+  function frame() {
+    if (pos == 480) {
+      clearInterval(id);
+    } else {
+      top--;
+	  pos++;
+      $("#animate").css("top", top + "px");
+	  $("#animate").css("left", (left + angle) + "px");
+    }
+  }
+}
+
+$(document).ready(function() {
+	$("#animate").css("top", $("#container").height() - $("#animate").height()*1.7 - 5);
+	$("#animate").css("left", $("#container").width()/2 - $("#animate").width()/2);
+	
+	$("#leftField").click(function(e) {
+		var pos = $("#container").position();
+		//-2 to 2 is fair ball, 
+		myMove($("#container").height() - $("#animate").height()*1.7 - 5, $("#container").width()/2 - $("#animate").width()/-2, 2);
+	})
+
+})
+</script>
+</head>
+<body>
+
+<p>
+<button id="start">Click Me</button>
+<button id="leftField">Left Field</button>
+</p> 
+
+<center><div id ="container">
+<div id ="animate"></div>
+</div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
